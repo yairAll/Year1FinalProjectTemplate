@@ -6,6 +6,7 @@ using static Project.Utils;
 
 namespace Project;
 
+//mandatory changes
 class Program
 {
   static void Main()
