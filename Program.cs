@@ -8,9 +8,15 @@ namespace Project;
 
 //mandatory changes
 class Program
-{
-  static void Main()
-  {
+{static void Main()
+    {
+        Dictionary<string, int> votes = new Dictionary<string, int>();
+        votes.Add("ferrari", 0);
+        votes.Add("porsche", 0);
+        votes.Add("lamborghini", 0);
+        votes.Add("mclaren", 0);
+        votes.Add("bugatti", 0);
+        votes.Add("other",0);
     /*───────────────────────────╮
     │ Creating the server object │
     ╰───────────────────────────*/
@@ -75,6 +81,19 @@ class Program
     var response = serverContext.Response;
 
     string absPath = request.Url!.AbsolutePath;
+  
+  if (absPath == "/vote") {
+                string company = GetBody(request);
+
+                votes[company]++;
+            }
+            else if (absPath == "/getVotes") {
+                string votesJson = JsonSerializer.Serialize(votes);
+                byte[] votesBytes = Encoding.UTF8.GetBytes(votesJson);
+                response.OutputStream.Write(votesBytes);
+            }
+  
+
   }
 }
 

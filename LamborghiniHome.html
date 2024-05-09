@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylebrand.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <h1>Lamborghini's most popular models</h1>
+    <div class="images">
+        <div class="box">
+            <a class="button" href="#popup0"><img src="images/countach.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup0" class="overlay">
+            <div class="popup">
+                <h2>Lamborghini countach</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 1974 -1990
+                    </br>
+                    Engine: V12 5.0-litre 
+                    </br>
+                    Horse Power : 370
+                    </br>
+                    Maximum speed: 310 km/h
+                    </br>
+                    price: $5,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup1"><img src="images/veneno.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Lamborghini veneno</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2013 - 2014
+                    </br>
+                    Engine: V12 6.5-litre
+                    </br>
+                    Horse Power : 740
+                    </br>
+                    Maximum speed: 356 km/h
+                    </br>
+                    price: $10,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup2"><img src="images/diablo.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup2" class="overlay">
+            <div class="popup">
+                <h2>Lamborghini diablo</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 1990 - 1995
+                    </br>
+                    Engine: V12 5.7-litre 
+                    </br>
+                    Horse Power : 550
+                    </br>
+                    Maximum speed: 325 km/h
+                    </br>
+                    price: $500,000
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="images2">
+        <div class="box">
+            <a class="button" href="#popup3"><img src="images/centenario.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup3" class="overlay">
+            <div class="popup">
+                <h2>Lamborghini centenario</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2016 - 2017
+                    </br>
+                    Engine: V12 6.5-litre	
+                    </br>
+                    Horse Power : 770
+                    </br>
+                    Maximum speed: 349 km/h
+                    </br>
+                    price: $6,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup4"><img src="images/sto.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup4" class="overlay">
+            <div class="popup">
+                <h2>Lamborghini huracan sto </h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2021 - today
+                    </br>
+                    Engine: v10 5.2-liter 
+                    </br>
+                    Horse Power : 631
+                    </br>
+                    Maximum speed: 325 km/h
+                    </br>
+                    price: $350,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <a class="button" href="#popup5"><img src="images/svj.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup5" class="overlay">
+            <div class="popup">
+                <h2>Lamborghini aventador svj </h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2019 - 2022
+                    </br>
+                    Engine:  v12 6.5-litre L539 
+                    </br>
+                    Horse Power : 770
+                    </br>
+                    Maximum speed: 352 km/h
+                    </br>
+                    price: $600,000
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <button onclick="voteAndUpdate()">Vote</button>
+
+    <div id="votes"></div>
+
+
+    <a href="index.html">Go back to main page</a>
+    <script src="script.js"></script>
+    <script>
+        let votesDiv = document.getElementById("votes");
+
+        async function updateVotesDiv() {
+            let votes = await getVotes();
+            votesDiv.innerText = "Votes: " + votes["lamborghini"];
+        }
+
+        async function voteAndUpdate() {
+            await vote("lamborghini");
+            await updateVotesDiv();
+        }
+
+        updateVotesDiv();
+    </script>
+
+
+
+
+</body>
+
+</html>

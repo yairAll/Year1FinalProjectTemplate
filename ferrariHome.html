@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylebrand.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <h1>Ferrari's most popular models</h1>
+
+    <div class="images">
+
+        <div class="box">
+            <a class="button" href="#popup0"><img src="images/LAFERRARI.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup0" class="overlay">
+            <div class="popup">
+                <h2>Ferrari LAFERRARI</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2013 - 2016
+                    </br>
+                    Engine: 6262cc V12 engine
+                    </br>
+                    Horse Power : 950
+                    </br>
+                    Maximum speed: 352 km/h
+                    </br>
+                    price: $3,500,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup1"><img src="images/enzo.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Ferrari ENZO</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2002 - 2004
+                    </br>
+                    Engine: 65° V12 engine
+                    </br>
+                    Horse Power : 660
+                    </br>
+                    Maximum speed: 355 km/h
+                    </br>
+                    price: $4,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup2"><img src="images/f40.webp" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup2" class="overlay">
+            <div class="popup">
+                <h2>Ferrari F40</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 1987 to 1992
+                    </br>
+                    Engine: 2.9L twin-turbo V8
+                    </br>
+                    Horse Power : 471
+                    </br>
+                    Maximum speed: 324 km/h
+                    </br>
+                    price: $5,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="images2">
+        <div class="box">
+            <a class="button" href="#popup3"><img src="images/250Gto.png" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup3" class="overlay">
+            <div class="popup">
+                <h2>Ferrari 250 GTO</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 1962 to 1964
+                    </br>
+                    Engine: Tipo 168/62 Comp. 3.0 L (2,953 cc) V12
+                    </br>
+                    Horse Power : 300
+                    </br>
+                    Maximum speed: 280 km/h
+                    </br>
+                    price: $50,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup4"><img src="images/488pista.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup4" class="overlay">
+            <div class="popup">
+                <h2>Ferrari 488 pista </h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2018
+                    </br>
+                    Engine: 3.9-liter V-8
+                    </br>
+                    Horse Power : 710
+                    </br>
+                    Maximum speed: 340 km/h
+                    </br>
+                    price: $330,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <a class="button" href="#popup5"><img src="images/812.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup5" class="overlay">
+            <div class="popup">
+                <h2>Ferrari 812 Competizione </h2>
+                <a class="close" href="#">&times;</a>
+                <div clas0s="content">
+                    Year of manufacture: 2017 - 2023
+                    </br>
+                    Engine: 6,496 cc (6.5 L) F140 GA V12
+                    </br>
+                    Horse Power : 830
+                    </br>
+                    Maximum speed: 340 km/h
+                    </br>
+                    price: $1,200,000
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <button onclick="voteAndUpdate()">Vote</button>
+
+    <div id="votes"></div>
+
+
+    <a href="index.html">Go back to main page</a>
+    
+    
+    <script src="script.js"></script>
+    <script>
+        let votesDiv = document.getElementById("votes");
+
+        async function updateVotesDiv() {
+            let votes = await getVotes();
+            votesDiv.innerText = "Votes: " + votes["ferrari"];
+        }
+
+        async function voteAndUpdate() {
+            await vote("ferrari");
+            await updateVotesDiv();
+        }
+
+        updateVotesDiv();
+    </script>
+</body>
+
+
+</html>

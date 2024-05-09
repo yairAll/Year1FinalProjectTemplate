@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylebrand.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <h1>Other popular models</h1>
+
+    <div class="images">
+
+        <div class="box">
+            <a class="button" href="#popup0"><img src="images/bat.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup0" class="overlay">
+            <div class="popup">
+                <h2>Ido's Batmobile</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2016
+                    </br>
+                    Engine: V8 engine
+                    </br>
+                    Horse Power : 550
+                    </br>
+                    Maximum speed: 300 km/h
+                    </br>
+                    price: $10,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup1"><img src="images/topg.avif" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Top G Bugatti</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2018
+                    </br>
+                    Engine: 8.0 L (488 cu in) quad-turbocharged WR16
+                    </br>
+                    Horse Power : 1550
+                    </br>
+                    Maximum speed: 500 km/h
+                    </br>
+                    price: $5,500,000
+                    </br>
+                </div>
+            </div>
+        </div>
+        
+        <div class="box">
+            <a class="button" href="#popup2"><img src="images/eitan.jpeg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup2" class="overlay">
+            <div class="popup">
+                <h2>Eitan's Bimba</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2024
+                    </br>
+                    Engine: V8
+                    </br>
+                    Horse Power : -1
+                    </br>
+                    Maximum speed: 5 km/h
+                    </br>
+                    price: $10*cos(87)^2
+                    </br>
+                </div>
+            </div>
+        </div>
+        
+            <div class="box">
+                <a class="button" href="#popup3"><img src="images/dream.jpg" height="300" width="500" /></a>
+            </div>
+    
+            <div id="popup3" class="overlay">
+                <div class="popup">
+                    <h2>My Dream Car - McLaren 765</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        Year of manufacture: 2022
+                        </br>
+                        Engine: 4.0-liter twin turbo V8 
+                        </br>
+                        Horse Power : 1200
+                        </br>
+                        Maximum speed: 370 km/h
+                        </br>
+                        price: $800,000
+                        </br>
+                    </div>
+                </div>
+        
+        </div>
+        </div>
+
+        
+        <button onclick="voteAndUpdate()">Vote</button>
+
+        <div id="votes"></div>
+    
+    
+        <a href="index.html">Go back to main page</a>
+        <script src="script.js"></script>
+        <script>
+            let votesDiv = document.getElementById("votes");
+    
+            async function updateVotesDiv() {
+                let votes = await getVotes();
+                votesDiv.innerText = "Votes: " + votes["other"];
+            }
+    
+            async function voteAndUpdate() {
+                await vote("other");
+                await updateVotesDiv();
+            }
+    
+            updateVotesDiv();
+        </script>
+
+    
+</body>
+
+</html>

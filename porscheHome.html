@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylebrand.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <h1>Porsche's most popular models</h1>
+    <div class="images">
+        <div class="box">
+            <a class="button" href="#popup0"><img src="images/918.webp" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup0" class="overlay">
+            <div class="popup">
+                <h2>Porsche 918 spyder</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2013 - 2015
+                    </br>
+                    Engine: V8 4.6 L
+                    </br>
+                    Horse Power : 608
+                    </br>
+                    Maximum speed: 345 km/h
+                    </br>
+                    price: $2,500,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup1"><img src="images/911GT3RS.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Porsche  911 gt3</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2021
+                    </br>
+                    Engine:  3.6L (3,596cc)Porsche flat-six engine
+                    </br>
+                    Horse Power : 518
+                    </br>
+                    Maximum speed: 296 km/h
+                    </br>
+                    price: $300,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup2"><img src="images/911CarreraRs.avif" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup2" class="overlay">
+            <div class="popup">
+                <h2>Porsche 911 carrera rs</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 1973 - 1974
+                    </br>
+                    Engine: 2.7 L 164.0 cu  (2,687 cc) 
+                    </br>
+                    Horse Power : 210
+                    </br>
+                    Maximum speed: 240 km/h
+                    </br>
+                    price: $1,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="images2">
+        <div class="box">
+            <a class="button" href="#popup3"><img src="images/carreraGt.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup3" class="overlay">
+            <div class="popup">
+                <h2>Porsche carrera Gt</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2005 - 2007
+                    </br>
+                    Engine: 5.7 L (5,733 cc) Porsche M80/01 DOHC V10	
+                    </br>
+                    Horse Power : 603
+                    </br>
+                    Maximum speed: 330 km/h
+                    </br>
+                    price: $1,500,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup4"><img src="images/944.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup4" class="overlay">
+            <div class="popup">
+                <h2> Porsche 944 turbo</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 1983 - 1988
+                    </br>
+                    Engine: 2.5 L M44/40 I4
+                    </br>
+                    Horse Power : 250
+                    </br>
+                    Maximum speed: 261 km/h
+                    </br>
+                    price: $80,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <a class="button" href="#popup5"><img src="images/935.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup5" class="overlay">
+            <div class="popup">
+                <h2>Porsche 935  </h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2019 - 2020
+                    </br>
+                    Engine:  515 kW (700 PS; 691 hp)
+                    </br>
+                    Horse Power : 700
+                    </br>
+                    Maximum speed: 340 km/h
+                    </br>
+                    price: $1,800,000
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <button onclick="voteAndUpdate()">Vote</button>
+
+    <div id="votes"></div>
+
+
+    <a href="index.html">Go back to main page</a>
+    <script src="script.js"></script>
+    <script>
+        let votesDiv = document.getElementById("votes");
+
+        async function updateVotesDiv() {
+            let votes = await getVotes();
+            votesDiv.innerText = "Votes: " + votes["porsche"];
+        }
+
+        async function voteAndUpdate() {
+            await vote("porsche");
+            await updateVotesDiv();
+        }
+
+        updateVotesDiv();
+    </script>
+
+
+
+
+</body>
+
+</html>

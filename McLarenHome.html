@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylebrand.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <h1>McLaren's most popular models</h1>
+
+    <div class="images">
+
+        <div class="box">
+            <a class="button" href="#popup0"><img src="images/F1.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup0" class="overlay">
+            <div class="popup">
+                <h2>McLaren F1</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 1992 - 1998
+                    </br>
+                    Engine: 6.1 L (6,064 cc) BMW S70/2 V12
+                    </br>
+                    Horse Power : 618
+                    </br>
+                    Maximum speed: 386 km/h
+                    </br>
+                    price: $20,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup1"><img src="images/P1.webp" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>McLaren P1</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2013 - 2015
+                    </br>
+                    Engine: 3.8 L twin-turbocharged M838TQ V8
+                    </br>
+                    Horse Power : 903
+                    </br>
+                    Maximum speed: 350 km/h
+                    </br>
+                    price: $1,500,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup2"><img src="images/720.webp" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup2" class="overlay">
+            <div class="popup">
+                <h2>McLaren 720</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2017 - 2020
+                    </br>
+                    Engine: 4.0 L M840T twin-turbocharged V8
+                    </br>
+                    Horse Power : 710
+                    </br>
+                    Maximum speed: 341 km/h
+                    </br>
+                    price: $400,000
+                    </br>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="images2">
+        <div class="box">
+            <a class="button" href="#popup3"><img src="images/senna.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup3" class="overlay">
+            <div class="popup">
+                <h2>McLaren senna</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2018 - 2022
+                    </br>
+                    Engine: 4.0 L  M840TR twin-turbocharged V8
+                    </br>
+                    Horse Power : 789
+                    </br>
+                    Maximum speed: 340 km/h
+                    </br>
+                    price: $1,500,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup4"><img src="images/speedtail.webp" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup4" class="overlay">
+            <div class="popup">
+                <h2>McLaren speedtail</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2020
+                    </br>
+                    Engine: 4.0 L M840T twin-turbocharged V8
+                    </br>
+                    Horse Power : 1035
+                    </br>
+                    Maximum speed: 403 km/h
+                    </br>
+                    price: $2,800,000
+                    </br>
+                </div>
+            </div>
+        </div>
+    
+
+    <div class="box">
+        <a class="button" href="#popup5"><img src="images/12c.avif" height="300" width="500" /></a>
+    </div>
+    
+    <div id="popup5" class="overlay">
+        <div class="popup">
+            <h2>McLaren mp4 12c </h2>
+            <a class="close" href="#">&times;</a>
+            <div clas0s="content">
+                Year of manufacture: 2011 - 2014
+                </br>
+                Engine: 3.8 L M838T twin-turbocharged V8
+                </br>
+                Horse Power : 616
+                </br>
+                Maximum speed: 346 km/h
+                </br>
+                price: $250,000
+                </br>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <button onclick="voteAndUpdate()">Vote</button>
+
+    <div id="votes"></div>
+
+
+    <a href="index.html">Go back to main page</a>
+    <script src="script.js"></script>
+    <script>
+        let votesDiv = document.getElementById("votes");
+
+        async function updateVotesDiv() {
+            let votes = await getVotes();
+            votesDiv.innerText = "Votes: " + votes["mclaren"];
+        }
+
+        async function voteAndUpdate() {
+            await vote("mclaren");
+            await updateVotesDiv();
+        }
+
+        updateVotesDiv();
+    </script>
+
+    
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

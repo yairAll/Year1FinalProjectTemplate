@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylebrand.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <h1>Bugatti's most popular models</h1>
+
+    <div class="images">
+
+        <div class="box">
+            <a class="button" href="#popup0"><img src="images/chiron.webp" height="300" width="500" /></a>
+        </div>
+        
+        <div id="popup0" class="overlay">
+            <div class="popup">
+                <h2>Bugatti chiron</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2016 - 2020
+                    </br>
+                    Engine: 8.0 L (488 cu in) quad-turbocharged WR16
+                    </br>
+                    Horse Power : 1500
+                    </br>
+                    Maximum speed: 489 km/h
+                    </br>
+                    price: $4,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup1"><img src="images/veyron.jpg" height="300" width="500" /></a>
+        </div>
+        
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Bugatti veyron</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2005 -2011
+                    </br>
+                    Engine: 8.0 L (488 cu in) quad-turbocharged Volkswagen WR16
+                    </br>
+                    Horse Power : 987
+                    </br>
+                    Maximum speed: 415 km/h
+                    </br>
+                    price: $2,500,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup2"><img src="images/divo.jpg" height="300" width="500" /></a>
+        </div>
+        
+        <div id="popup2" class="overlay">
+            <div class="popup">
+                <h2>Bugatti Divo</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2019 - 2021
+                    </br>
+                    Engine: 8.0 L (488 cu in) quad-turbocharged W16
+                    </br>
+                    Horse Power : 1500
+                    </br>
+                    Maximum speed: 380 km/h
+                    </br>
+                    price: $6,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="images2">
+        <div class="box">
+            <a class="button" href="#popup3"><img src="images/bolide.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup3" class="overlay">
+            <div class="popup">
+                <h2>Bugatti bolide</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 2021 - today
+                    </br>
+                    Engine: 8.0 L (488 cu in) quad-turbocharged W16
+                    </br>
+                    Horse Power : 1826
+                    </br>
+                    Maximum speed: 500 km/h
+                    </br>
+                    price: $5,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <a class="button" href="#popup4"><img src="images/eb110.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup4" class="overlay">
+            <div class="popup">
+                <h2>Bugatti EB110 </h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Year of manufacture: 1991 - 1995
+                    </br>
+                    Engine: 3.5 L Bugatti quad-turbocharged V12
+                    </br>
+                    Horse Power : 553
+                    </br>
+                    Maximum speed: 355 km/h
+                    </br>
+                    price: $5,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <a class="button" href="#popup5"><img src="images/lavoiture.jpg" height="300" width="500" /></a>
+        </div>
+
+        <div id="popup5" class="overlay">
+            <div class="popup">
+                <h2>Bugatti La Voiture Noire</h2>
+                <a class="close" href="#">&times;</a>
+                <div clas0s="content">
+                    Year of manufacture: 2021
+                    </br>
+                    Engine: 16-cylinder W quad- turbo
+                    </br>
+                    Horse Power : 1500
+                    </br>
+                    Maximum speed: 488 km/h
+                    </br>
+                    price: $28,000,000
+                    </br>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    
+    <button onclick="voteAndUpdate()">Vote</button>
+
+    <div id="votes"></div>
+
+
+    <a href="index.html">Go back to main page</a>
+    <script src="script.js"></script>
+    <script>
+        let votesDiv = document.getElementById("votes");
+
+        async function updateVotesDiv() {
+            let votes = await getVotes();
+            votesDiv.innerText = "Votes: " + votes["bugatti"];
+        }
+
+        async function voteAndUpdate() {
+            await vote("bugatti");
+            await updateVotesDiv();
+        }
+
+        updateVotesDiv();
+    </script>
+
+
+
+</body>
+
+
+</html>

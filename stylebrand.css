@@ -1,0 +1,37 @@
+.column img {
+    float: left;
+    margin: 5px;
+    width: 500px;
+    height: 300px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.images {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.images2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: peachpuff;
+    font-size: 50px;
+}
