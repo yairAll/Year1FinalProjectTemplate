@@ -14,7 +14,7 @@
         <div class="box">
             <a class="button" href="#popup0"><img src="images/chiron.webp" height="300" width="500" /></a>
         </div>
-        
+
         <div id="popup0" class="overlay">
             <div class="popup">
                 <h2>Bugatti chiron</h2>
@@ -30,6 +30,9 @@
                     </br>
                     price: $4,000,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button type="button">add to favorite</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,7 +40,7 @@
         <div class="box">
             <a class="button" href="#popup1"><img src="images/veyron.jpg" height="300" width="500" /></a>
         </div>
-        
+
         <div id="popup1" class="overlay">
             <div class="popup">
                 <h2>Bugatti veyron</h2>
@@ -53,6 +56,9 @@
                     </br>
                     price: $2,500,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button type="button">add to favorite</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,7 +66,7 @@
         <div class="box">
             <a class="button" href="#popup2"><img src="images/divo.jpg" height="300" width="500" /></a>
         </div>
-        
+
         <div id="popup2" class="overlay">
             <div class="popup">
                 <h2>Bugatti Divo</h2>
@@ -76,6 +82,9 @@
                     </br>
                     price: $6,000,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button type="button">add to favorite</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,6 +109,9 @@
                     </br>
                     price: $5,000,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button type="button">add to favorite</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,6 +135,9 @@
                     </br>
                     price: $5,000,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button id="bugatti4Button" >add to favorite</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -135,6 +150,7 @@
         <div id="popup5" class="overlay">
             <div class="popup">
                 <h2>Bugatti La Voiture Noire</h2>
+
                 <a class="close" href="#">&times;</a>
                 <div clas0s="content">
                     Year of manufacture: 2021
@@ -147,6 +163,9 @@
                     </br>
                     price: $28,000,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button id="bugatti5Button" type="button">add to favorite</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,31 +173,8 @@
 
     </div>
     </div>
-    
-    <button onclick="voteAndUpdate()">Vote</button>
-
-    <div id="votes"></div>
-
-
     <a href="index.html">Go back to main page</a>
-    <script src="script.js"></script>
-    <script>
-        let votesDiv = document.getElementById("votes");
-
-        async function updateVotesDiv() {
-            let votes = await getVotes();
-            votesDiv.innerText = "Votes: " + votes["bugatti"];
-        }
-
-        async function voteAndUpdate() {
-            await vote("bugatti");
-            await updateVotesDiv();
-        }
-
-        updateVotesDiv();
-    </script>
-
-
+    <script src="script.js" type="module"></script>
 
 </body>
 

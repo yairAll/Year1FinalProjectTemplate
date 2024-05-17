@@ -30,6 +30,9 @@
                     </br>
                     price: $3,500,000
                     </br>
+                    <div class="buttonFerrari">
+                    <button type="button">add to favorite</button>
+                </div> 
                 </div>
             </div>
         </div>
@@ -53,6 +56,9 @@
                     </br>
                     price: $4,000,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button type="button">add to favorite</button>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -76,6 +82,9 @@
                     </br>
                     price: $5,000,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button type="button">add to favorite</button>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -100,6 +109,9 @@
                     </br>
                     price: $50,000,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button type="button">add to favorite</button>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -123,6 +135,9 @@
                     </br>
                     price: $330,000
                     </br>
+                           <div class="buttonFerrari">
+                    <button type="button">add to favorite</button>
+                </div> 
                 </div>
             </div>
         </div>
@@ -147,6 +162,9 @@
                     </br>
                     price: $1,200,000
                     </br>
+                    <div class="buttonFerrari">
+                        <button type="button">add to favorite</button>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -162,22 +180,9 @@
     <a href="index.html">Go back to main page</a>
     
     
-    <script src="script.js"></script>
-    <script>
-        let votesDiv = document.getElementById("votes");
-
-        async function updateVotesDiv() {
-            let votes = await getVotes();
-            votesDiv.innerText = "Votes: " + votes["ferrari"];
-        }
-
-        async function voteAndUpdate() {
-            await vote("ferrari");
-            await updateVotesDiv();
-        }
-
-        updateVotesDiv();
-    </script>
+    <script src="script.js" type="module"></script>
+  
+    
 </body>
 
 

@@ -12,7 +12,7 @@ class Program
 {
   static void Main()
   {
-    
+
     /*───────────────────────────╮
     │ Creating the server object │
     ╰───────────────────────────*/
@@ -62,7 +62,7 @@ class Program
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(e);
         Console.ResetColor();
-      } 
+      }
 
       /*───────────────────────────────────╮
       │ Sending the response to the client │
@@ -71,31 +71,44 @@ class Program
     }
   }
 
-  static void HandleRequests(HttpListenerContext serverContext, DatabaseContext database)
+  static void HandleRequests(HttpListenerContext serverContext, DatabaseContext databaseContext)
   {
     var request = serverContext.Request;
     var response = serverContext.Response;
 
     string absPath = request.Url!.AbsolutePath;
 
-     if (absPath == "/signup"){
-      (string username , string password) = request.GetBody<(string,string)>();
+    if (absPath == "/signUp")
+    {
+      (string username, string password) = request.GetBody<(string, string)>();
+
+      Console.WriteLine("--- Username: " + username + "\n--- Password: " + password);
 
       var userId = Uuid.NewDatabaseFriendly(UUIDNext.Database.SQLite).ToString();
 
-      var user = new User(userId , username,password);
-      database.Users.Add(user);
+      User user = new User(userId, username, password);
+      databaseContext.Users.Add(user);
 
       response.Write(userId);
 
-      
-     }
 
-     else if ( absPath == "/login")
-     {
+    }
+    else if (absPath == "/addcartodb")
+    {
+      (string carname, string idcar) = request.GetBody<(string, string)>();
+      Console.WriteLine(carname);
+      User user = databaseContext.Users.Find(idcar)!;
+      user.Carsar = user.Carsar.Append(carname).ToArray();
+      databaseContext.SaveChanges();
+      response.Write(user.Carsar);
+
+
+    }
+    else if (absPath == "/login")
+    {
       (string username, string password) = request.GetBody<(string, string)>();
 
-      User user = database.Users.First(
+      User user = databaseContext.Users.First(
         u => u.Username == username && u.Password == password
       )!;
 
@@ -105,20 +118,21 @@ class Program
 
 }
 
-class DatabaseContext : DbContextWrapper
+public class DatabaseContext : DbContextWrapper
 {
-  public DbSet<User> Users {get; set;}
+  public DbSet<User> Users { get; set; }
   // public DbSet<Favorite> favorites { get; set; }
-  
+
   public DatabaseContext() : base("Database") { }
 }
 
 
-class User(string id, string username, string password)
+public class User(string id, string username, string password)
 {
   [Key]
-  public string Id { get; set; } = id ;
-  public string Username { get; set; } = username ;
-  public string Password { get; set; } = password ;
+  public string[] Carsar{ get; set; } = [];
+  public string Id { get; set; } = id;
+  public string Username { get; set; } = username;
+  public string Password { get; set; } = password;
 }
 
