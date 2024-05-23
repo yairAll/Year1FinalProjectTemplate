@@ -95,17 +95,19 @@ class Program
     }
     else if (absPath == "/addcartodb")
     {
-      (string carname, string idcar) = request.GetBody<(string, string)>();
-      Console.WriteLine(carname);
-      User user = databaseContext.Users.Find(idcar)!;
-      user.Carsar = user.Carsar.Append(carname).ToArray();
-      databaseContext.SaveChanges();
-      response.Write(user.Carsar);
+      
+      (int carId, string userId) = request.GetBody<(int, string)>();
+      // Console.WriteLine(carId);
+      // User user = databaseContext.Users.Find(userId)!;
+      // user.CarId = carId;
+      // databaseContext.SaveChanges();
+      // response.Write(user.CarId);
 
 
     }
     else if (absPath == "/login")
     {
+      
       (string username, string password) = request.GetBody<(string, string)>();
 
       User user = databaseContext.Users.First(
@@ -114,6 +116,7 @@ class Program
 
       response.Write(user.Id);
     }
+    
   }
 
 }
@@ -130,7 +133,7 @@ public class DatabaseContext : DbContextWrapper
 public class User(string id, string username, string password)
 {
   [Key]
-  public string[] Carsar{ get; set; } = [];
+  public int CarId{ get; set; } = -1;
   public string Id { get; set; } = id;
   public string Username { get; set; } = username;
   public string Password { get; set; } = password;

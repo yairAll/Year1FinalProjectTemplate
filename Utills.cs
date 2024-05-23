@@ -10,10 +10,13 @@ public static class Utils
 {
   public static T GetBody<T>(this HttpListenerRequest request)
   {
+    Console.WriteLine("1");
     string json = new StreamReader(request.InputStream).ReadToEnd();
 
+    Console.WriteLine("1");
     string jsonFix = IsTuple(typeof(T)) ? TupliseJson(json) : json;
 
+    Console.WriteLine("1");
     return JsonConvert.DeserializeObject<T>(jsonFix)!;
   }
 
