@@ -45,6 +45,7 @@ export async function send(path, bodyObject) {
   });
 
   let text = await response.text();
+
   try { return JSON.parse(text); }
   catch {
     if (text.length > 0) { return text; }

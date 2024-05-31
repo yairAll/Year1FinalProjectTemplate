@@ -97,11 +97,12 @@ class Program
     {
       
       (int carId, string userId) = request.GetBody<(int, string)>();
-      // Console.WriteLine(carId);
-      // User user = databaseContext.Users.Find(userId)!;
-      // user.CarId = carId;
-      // databaseContext.SaveChanges();
-      // response.Write(user.CarId);
+      Console.WriteLine(carId);
+      Console.WriteLine(userId);
+      User user = databaseContext.Users.Find(userId)!;
+      user.CarId = carId;
+      databaseContext.SaveChanges();
+      response.Write(user.CarId);
 
 
     }
@@ -133,8 +134,8 @@ public class DatabaseContext : DbContextWrapper
 public class User(string id, string username, string password)
 {
   [Key]
-  public int CarId{ get; set; } = -1;
   public string Id { get; set; } = id;
+  public int CarId{ get; set; } = -1;
   public string Username { get; set; } = username;
   public string Password { get; set; } = password;
 }
