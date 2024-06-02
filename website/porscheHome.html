@@ -29,7 +29,7 @@
                     price: $2,500,000
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                        <button id="porsche0Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     price: $300,000
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                        <button id="porsche1Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     price: $1,000,000
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                        <button id="porsche2Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -108,7 +108,7 @@
                     price: $1,500,000
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                        <button id="porsche3Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -134,7 +134,7 @@
                     price: $80,000
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                        <button id="porsche4Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -147,7 +147,7 @@
 
         <div id="popup5" class="overlay">
             <div class="popup">
-                <h2>Porsche 935  </h2>
+                <h2>Porsche 935 </h2>
                 <a class="close" href="#">&times;</a>
                 <div class="content">
                     Year of manufacture: 2019 - 2020
@@ -161,7 +161,7 @@
                     price: $1,800,000
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                            <button id="porsche5Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -169,28 +169,12 @@
     </div>
     </div>
 
-    <button onclick="voteAndUpdate()">Vote</button>
-
-    <div id="votes"></div>
+    
 
 
     <a href="index.html">Go back to main page</a>
-    <script src="script.js"></script>
-    <script>
-        let votesDiv = document.getElementById("votes");
-
-        async function updateVotesDiv() {
-            let votes = await getVotes();
-            votesDiv.innerText = "Votes: " + votes["porsche"];
-        }
-
-        async function voteAndUpdate() {
-            await vote("porsche");
-            await updateVotesDiv();
-        }
-
-        updateVotesDiv();
-    </script>
+    <script src="porsche.js" type="module"></script>
+    
 
 
 

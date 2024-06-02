@@ -31,7 +31,7 @@
                     price: $10,000,000
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                        <button id="other0Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     price: $5,500,000
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                        <button id="other1Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -83,7 +83,7 @@
                     price: $10*cos(87)^2
                     </br>
                     <div class="buttonFerrari">
-                        <button type="button">add to favorite</button>
+                        <button id="other2Button">add to favorite</button>
                     </div> 
                 </div>
             </div>
@@ -109,7 +109,7 @@
                         price: $800,000
                         </br>
                         <div class="buttonFerrari">
-                            <button type="button">add to favorite</button>
+                            <button id="other3Button">add to favorite</button>
                         </div> 
                     </div>
                 </div>
@@ -118,28 +118,12 @@
         </div>
 
         
-        <button onclick="voteAndUpdate()">Vote</button>
-
-        <div id="votes"></div>
+       
     
     
         <a href="index.html">Go back to main page</a>
-        <script src="script.js"></script>
-        <script>
-            let votesDiv = document.getElementById("votes");
-    
-            async function updateVotesDiv() {
-                let votes = await getVotes();
-                votesDiv.innerText = "Votes: " + votes["other"];
-            }
-    
-            async function voteAndUpdate() {
-                await vote("other");
-                await updateVotesDiv();
-            }
-    
-            updateVotesDiv();
-        </script>
+        <script src="other.js" type="module"></script>
+       
 
     
 </body>
