@@ -1,8 +1,7 @@
 import { send } from "./_utils";
 import Cookies from "./_cookies";
 
-let bugatti4Button = document.getElementById("bugatti4Button");
-let bugatti5Button = document.getElementById("bugatti5Button");
+
 
 
 
@@ -12,8 +11,7 @@ async function favorite(carId) {
     addcarstodiv(allfavcars)
 }
 
-bugatti4Button.onclick = () => favorite(4);
-bugatti5Button.onclick = () => favorite(5);
+
 
 
 

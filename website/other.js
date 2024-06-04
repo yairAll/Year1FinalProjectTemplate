@@ -18,10 +18,10 @@ async function favorite(carId) {
     addcarstodiv(allfavcars)
 }
 
-other0Button.onclick = () => favorite(28);//Ido's Batmobile
-other1Button.onclick = () => favorite(29);//Top G Bugatti
-other2Button.onclick = () => favorite(30);//Eitan's Bimba
-other3Button.onclick = () => favorite(31);//My Dream Car - McLaren 765 
+other0Button.onclick = () => favorite(28,"images/bat.jpg");//Ido's Batmobile
+other1Button.onclick = () => favorite(29,"images/topg.avif");//Top G Bugatti
+other2Button.onclick = () => favorite(30,"images/eitan.jpeg");//Eitan's Bimba
+other3Button.onclick = () => favorite(31,"images/dream.jpg");//My Dream Car - McLaren 765 
 
 
 

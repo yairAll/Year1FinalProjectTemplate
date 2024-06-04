@@ -19,12 +19,12 @@ async function favorite(carId) {
     addcarstodiv(allfavcars)
 }
 
-bugatti0Button.onclick = () => favorite(0);//bugatti chiron
-bugatti1Button.onclick = () => favorite(1);//bugatti veyron
-bugatti2Button.onclick = () => favorite(2);//bugatti divo
-bugatti3Button.onclick = () => favorite(3);//bugatti bolide
-bugatti4Button.onclick = () => favorite(4);//bugatti eb110
-bugatti5Button.onclick = () => favorite(5);//bugatti la voi
+bugatti0Button.onclick = () => favorite(0,"images/chiron.webp");//bugatti chiron
+bugatti1Button.onclick = () => favorite(1,"images/veyron.jpg");//bugatti veyron
+bugatti2Button.onclick = () => favorite(2,"images/divo.jpg");//bugatti divo
+bugatti3Button.onclick = () => favorite(3,"images/bolide.jpg");//bugatti bolide
+bugatti4Button.onclick = () => favorite(4,"images/eb110.jpg");//bugatti eb110
+bugatti5Button.onclick = () => favorite(5,"images/lavoiture.jpg");//bugatti la voi
 
 
 

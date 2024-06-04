@@ -86,7 +86,7 @@ class Program
 
       var userId = Uuid.NewDatabaseFriendly(UUIDNext.Database.SQLite).ToString();
 
-      User user = new User(userId, username, password);
+      User user = new User(userId, username, password,"");
       databaseContext.Users.Add(user);
 
       response.Write(userId);
@@ -96,13 +96,16 @@ class Program
     else if (absPath == "/addcartodb")
     {
       
-      (int carId, string userId) = request.GetBody<(int, string)>();
+      (int carId, string userId, string carimage) = request.GetBody<(int, string, string)>();
       Console.WriteLine(carId);
       Console.WriteLine(userId);
+      Console.WriteLine(carimage);
       User user = databaseContext.Users.Find(userId)!;
       user.CarId = carId;
+      user.carimage = carimage;
       databaseContext.SaveChanges();
       response.Write(user.CarId);
+      response.Write(carimage);
 
 
     }
@@ -117,8 +120,18 @@ class Program
 
       response.Write(user.Id);
     }
-    
+    else if(absPath == "/getpreviews")
+    {
+      var previews = databaseContext.Users.Select(CarId=>new
+      {
+        carId = CarId,
+      }
+      );
+      response.Write(previews);
+
+    }
   }
+
 
 }
 
@@ -131,9 +144,10 @@ public class DatabaseContext : DbContextWrapper
 }
 
 
-public class User(string id, string username, string password)
+public class User(string id, string username, string password,string carimage)
 {
   [Key]
+  public string carimage{ get; set; }=carimage;
   public string Id { get; set; } = id;
   public int CarId{ get; set; } = -1;
   public string Username { get; set; } = username;

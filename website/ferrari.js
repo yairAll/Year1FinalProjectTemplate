@@ -19,12 +19,12 @@ async function favorite(carId) {
     addcarstodiv(allfavcars)
 }
 
-Ferrari0Button.onclick = () => favorite(12);//ferrari la Ferrari
-Ferrari1Button.onclick = () => favorite(13);//ferrari enzo
-Ferrari2Button.onclick = () => favorite(14);//Ferrari f40
-Ferrari3Button.onclick = () => favorite(15);//Ferrari 250gto
-Ferrari4Button.onclick = () => favorite(16);//Ferrari 488 pista
-Ferrari5Button.onclick = () => favorite(17);//Ferrari 812 competizione
+Ferrari0Button.onclick = () => favorite(12,"images/LAFERRARI.jpg");//ferrari la Ferrari
+Ferrari1Button.onclick = () => favorite(13,"images/enzo.jpg");//ferrari enzo
+Ferrari2Button.onclick = () => favorite(14,"images/f40.webp");//Ferrari f40
+Ferrari3Button.onclick = () => favorite(15,"images/250Gto.png");//Ferrari 250gto
+Ferrari4Button.onclick = () => favorite(16,"images/488pista.jpg");//Ferrari 488 pista
+Ferrari5Button.onclick = () => favorite(17,"images/812.jpg");//Ferrari 812 competizione
 
 
 

@@ -19,12 +19,12 @@ async function favorite(carId) {
     addcarstodiv(allfavcars)
 }
 
-mclaren0Button.onclick = () => favorite(18);// mclaren f1
-mclaren1Button.onclick = () => favorite(19);//mclaren p1
-mclaren2Button.onclick = () => favorite(20);//mclaren 720
-mclaren3Button.onclick = () => favorite(21);//mclaren senna
-mclaren4Button.onclick = () => favorite(22);//mclaren speedtail
-mclaren5Button.onclick = () => favorite(23);//mclaren mp4 12c
+mclaren0Button.onclick = () => favorite(18,"images/F1.jpg");// mclaren f1
+mclaren1Button.onclick = () => favorite(19,"images/P1.webp");//mclaren p1
+mclaren2Button.onclick = () => favorite(20,"images/720.webp");//mclaren 720
+mclaren3Button.onclick = () => favorite(21,"images/senna.jpg");//mclaren senna
+mclaren4Button.onclick = () => favorite(22,"images/countach.jpg");//mclaren speedtail
+mclaren5Button.onclick = () => favorite(23,"images/speedtail.webp");//mclaren mp4 12c
 
 
 
