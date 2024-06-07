@@ -23,15 +23,58 @@ class Program
     Console.WriteLine("Server started. Listening for requests...");
     Console.WriteLine("Main page on http://localhost:5000/website/index.html");
 
+    Car[] cars = [
+
+
+
+      new Car(0, "chiron","images/chiron.webp"),
+      new Car(1,"veyron","images/veyron.jpg"),
+      new Car(2,"divo","images/divo.jpg"),
+      new Car(3, "bolide", "images/bolide.jpg"),
+      new Car(4, "eb110", "images/eb110.jpg"),
+      new Car(5,"LaVoitureNoire","images/lavoiture.jpg"),
+      new Car(6, "countach", "images/countach.jpg"),
+      new Car(7,"veneno","images/veneno.jpg"),
+      new Car(8,"diablo","images/diablo.jpg"),
+      new Car(9, "centenario", "images/centenario.jpg"),
+      new Car(10, "huracanSto", "images/sto.jpg"),
+      new Car(11,"aventadorSvj","images/svj.jpg"),
+      new Car(12, "LAFERRARI", "images/LAFERRARI.jpg"),
+      new Car(13,"enzo","images/enzo.jpg"),
+      new Car(14,"f40","images/f40.webp"),
+      new Car(15, "250gto", "images/250Gto.png"),
+      new Car(16, "488pista", "images/488pista.jpg"),
+      new Car(17,"812 competizione","images/812.jpg"),
+      new Car(18, "f1", "images/F1.jpg"),
+      new Car(19,"P1","images/P1.webp"),
+      new Car(20,"720","images/720.webp"),
+      new Car(21, "senna", "images/senna.jpg"),
+      new Car(22, "speedtail", "images/speedtail.webp"),
+      new Car(23,"mp4 12c","images/12c.avif"),
+
+
+    ];
+
+    /*─────────────────────────────────────╮
+    │ Creating the database context object │
+    ╰─────────────────────────────────────*/
+    var databaseContext = new DatabaseContext();
+
+    for (int i = 0; i < cars.Length; i++)
+    {
+      if (databaseContext.Cars.Find(cars[i].Id) == null)
+      {
+        databaseContext.Cars.Add(cars[i]);
+      }
+    }
+
+    databaseContext.SaveChanges();
+
     /*─────────────────────────╮
     │ Processing HTTP requests │
     ╰─────────────────────────*/
     while (true)
     {
-      /*─────────────────────────────────────╮
-      │ Creating the database context object │
-      ╰─────────────────────────────────────*/
-      var databaseContext = new DatabaseContext();
 
       /*────────────────────────────╮
       │ Waiting for an HTTP request │
@@ -86,7 +129,7 @@ class Program
 
       var userId = Uuid.NewDatabaseFriendly(UUIDNext.Database.SQLite).ToString();
 
-      User user = new User(userId, username, password,"");
+      User user = new User(userId, username, password);
       databaseContext.Users.Add(user);
 
       response.Write(userId);
@@ -95,23 +138,17 @@ class Program
     }
     else if (absPath == "/addcartodb")
     {
-      
-      (int carId, string userId, string carimage) = request.GetBody<(int, string, string)>();
-      Console.WriteLine(carId);
+
+      (int favoriteCarId, string userId) = request.GetBody<(int, string)>();
+      Console.WriteLine(favoriteCarId);
       Console.WriteLine(userId);
-      Console.WriteLine(carimage);
       User user = databaseContext.Users.Find(userId)!;
-      user.CarId = carId;
-      user.carimage = carimage;
+      user.FavoriteCarId = favoriteCarId;
       databaseContext.SaveChanges();
-      response.Write(user.CarId);
-      response.Write(carimage);
-
-
+      response.Write(user.FavoriteCarId);
     }
     else if (absPath == "/login")
     {
-      
       (string username, string password) = request.GetBody<(string, string)>();
 
       User user = databaseContext.Users.First(
@@ -120,9 +157,9 @@ class Program
 
       response.Write(user.Id);
     }
-    else if(absPath == "/getpreviews")
+    else if (absPath == "/getpreviews")
     {
-      var previews = databaseContext.Users.Select(CarId=>new
+      var previews = databaseContext.Users.Select(CarId => new
       {
         carId = CarId,
       }
@@ -130,6 +167,17 @@ class Program
       response.Write(previews);
 
     }
+    else if (absPath == "/getFavoriteCarId")
+    {
+      string userId = request.GetBody<string>();
+
+      User user = databaseContext.Users.Find(userId)!;
+
+      Car car = databaseContext.Cars.Find(user.FavoriteCarId)!;
+
+      response.Write(car);
+    }
+
   }
 
 
@@ -138,19 +186,30 @@ class Program
 public class DatabaseContext : DbContextWrapper
 {
   public DbSet<User> Users { get; set; }
+  public DbSet<Car> Cars { get; set; }
   // public DbSet<Favorite> favorites { get; set; }
 
   public DatabaseContext() : base("Database") { }
 }
 
 
-public class User(string id, string username, string password,string carimage)
+public class User(string id, string username, string password)
 {
   [Key]
-  public string carimage{ get; set; }=carimage;
   public string Id { get; set; } = id;
-  public int CarId{ get; set; } = -1;
+  public int FavoriteCarId { get; set; } = -1;
   public string Username { get; set; } = username;
   public string Password { get; set; } = password;
 }
+
+public class Car(int id, string name, string image)
+{
+  [Key]
+  public int Id { get; set; } = id;
+  public string Name { get; set; } = name;
+  public string Image { get; set; } = image;
+}
+
+
+
 

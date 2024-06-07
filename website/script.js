@@ -9,7 +9,7 @@ import Cookies from "./_cookies";
 async function favorite(carId) {
     let allfavcars = await send("/addcartodb", carId, Cookies.get("id"));
     addcarstodiv(allfavcars)
-}
+} 
 
 
 

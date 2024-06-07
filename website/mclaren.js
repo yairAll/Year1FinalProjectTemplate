@@ -23,8 +23,8 @@ mclaren0Button.onclick = () => favorite(18,"images/F1.jpg");// mclaren f1
 mclaren1Button.onclick = () => favorite(19,"images/P1.webp");//mclaren p1
 mclaren2Button.onclick = () => favorite(20,"images/720.webp");//mclaren 720
 mclaren3Button.onclick = () => favorite(21,"images/senna.jpg");//mclaren senna
-mclaren4Button.onclick = () => favorite(22,"images/countach.jpg");//mclaren speedtail
-mclaren5Button.onclick = () => favorite(23,"images/speedtail.webp");//mclaren mp4 12c
+mclaren4Button.onclick = () => favorite(22,"images/speedtail.webp");//mclaren speedtail
+mclaren5Button.onclick = () => favorite(23,"images/12c.avif");//mclaren mp4 12c
 
 
 
