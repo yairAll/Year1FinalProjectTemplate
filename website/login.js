@@ -14,19 +14,19 @@ let submitButton = document.getElementById("submitButton");
 let messageDiv = document.getElementById("messageDiv");
 
 submitButton.onclick = async function () {
-    /**@type {string} */
-    let id = await send("/logIn", {
-        username: usernameInput.value,
-        password: passwordInput.value,
-    });
+  /**@type {string} */
+  let id = await send("/login", {
+    username: usernameInput.value,
+    password: passwordInput.value,
+  });
 
-    if (id == null) {
-        usernameInput.value = "";
-        passwordInput.value = "";
-        messageDiv.innerText = "Username or Password were incorrent";
-    }
-    else {
-        Cookies.set("id", id);
-        top.location.href = "index.html";
-    }
+  if (id == null) {
+    usernameInput.value = "";
+    passwordInput.value = "";
+    messageDiv.innerText = "Username or Password were incorrent";
+  }
+  else {
+    Cookies.set("id", id);
+    top.location.href = "index.html";
+  }
 }

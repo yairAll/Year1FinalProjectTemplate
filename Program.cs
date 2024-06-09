@@ -27,31 +27,40 @@ class Program
 
 
 
-      new Car(0, "chiron","images/chiron.webp"),
-      new Car(1,"veyron","images/veyron.jpg"),
-      new Car(2,"divo","images/divo.jpg"),
-      new Car(3, "bolide", "images/bolide.jpg"),
-      new Car(4, "eb110", "images/eb110.jpg"),
-      new Car(5,"LaVoitureNoire","images/lavoiture.jpg"),
-      new Car(6, "countach", "images/countach.jpg"),
-      new Car(7,"veneno","images/veneno.jpg"),
-      new Car(8,"diablo","images/diablo.jpg"),
-      new Car(9, "centenario", "images/centenario.jpg"),
-      new Car(10, "huracanSto", "images/sto.jpg"),
-      new Car(11,"aventadorSvj","images/svj.jpg"),
-      new Car(12, "LAFERRARI", "images/LAFERRARI.jpg"),
-      new Car(13,"enzo","images/enzo.jpg"),
-      new Car(14,"f40","images/f40.webp"),
-      new Car(15, "250gto", "images/250Gto.png"),
-      new Car(16, "488pista", "images/488pista.jpg"),
-      new Car(17,"812 competizione","images/812.jpg"),
-      new Car(18, "f1", "images/F1.jpg"),
-      new Car(19,"P1","images/P1.webp"),
-      new Car(20,"720","images/720.webp"),
-      new Car(21, "senna", "images/senna.jpg"),
-      new Car(22, "speedtail", "images/speedtail.webp"),
-      new Car(23,"mp4 12c","images/12c.avif"),
-
+      new Car(0, " Bugatti chiron","images/chiron.webp"),
+      new Car(1," Bugatti veyron","images/veyron.jpg"),
+      new Car(2,"Bugatti divo","images/divo.jpg"),
+      new Car(3, "Bugatti bolide", "images/bolide.jpg"),
+      new Car(4, "Bugatti eb110", "images/eb110.jpg"),
+      new Car(5,"Bugatti La Voiture Noire","images/lavoiture.jpg"),
+      new Car(6, "Lamborghini countach", "images/countach.jpg"),
+      new Car(7," Lamborghini veneno","images/veneno.jpg"),
+      new Car(8,"Lamborghini diablo","images/diablo.jpg"),
+      new Car(9, " Lamborghini centenario", "images/centenario.jpg"),
+      new Car(10, " Lamborghini huracan Sto", "images/sto.jpg"),
+      new Car(11,"Lamborghini aventador Svj","images/svj.jpg"),
+      new Car(12, " Ferrari LAFERRARI", "images/LAFERRARI.jpg"),
+      new Car(13," Ferrari enzo","images/enzo.jpg"),
+      new Car(14,"Ferrari f40","images/f40.webp"),
+      new Car(15, "Ferrari 250 gto", "images/250Gto.png"),
+      new Car(16, " Ferrari 488 pista", "images/488pista.jpg"),
+      new Car(17,"Ferrari 812 competizione","images/812.jpg"),
+      new Car(18, "McLaren f1", "images/F1.jpg"),
+      new Car(19,"McLaren P1","images/P1.webp"),
+      new Car(20,"McLaren 720","images/720.webp"),
+      new Car(21, "McLaren senna", "images/senna.jpg"),
+      new Car(22, " McLaren speedtail", "images/speedtail.webp"),
+      new Car(23," McLaren mp4 12c","images/12c.avif"),
+      new Car(24, " Porsche 918 Spyder", "images/918.webp"),
+      new Car(25,"Porsche 911 GT3","images/911GT3RS.jpg"),
+      new Car(26," Porsche 911 Carrera Rs","images/911CarreraRs.avif"),
+      new Car(27," Porsche carrera Gt", "images/careraGt.jpg"),
+      new Car(28, "Porsche 944 Turbo", "images/944.jpg"),
+      new Car(29,"Porsche 935","images/935.jpg"),
+      new Car(30,"Ido's Batmobile","images/bat.jpg"),
+      new Car(31,"Top G Bugatti","images/topg.avif"),
+      new Car(32,"Eitan's Bimba", "images/eitan.jpeg"),
+      new Car(33,"My Dream Car - McLaren 765 ", "images/dream.jpg"),
 
     ];
 
@@ -62,13 +71,14 @@ class Program
 
     for (int i = 0; i < cars.Length; i++)
     {
-      if (databaseContext.Cars.Find(cars[i].Id) == null)
+      if (databaseContext.Car.Find(cars[i].Id) == null)
       {
-        databaseContext.Cars.Add(cars[i]);
+        Console.WriteLine(cars[i].Id);
+        databaseContext.Car.Add(cars[i]);
+
+        databaseContext.SaveChanges();
       }
     }
-
-    databaseContext.SaveChanges();
 
     /*─────────────────────────╮
     │ Processing HTTP requests │
@@ -167,13 +177,13 @@ class Program
       response.Write(previews);
 
     }
-    else if (absPath == "/getFavoriteCarId")
+    else if (absPath == "/getFavorite")
     {
       string userId = request.GetBody<string>();
 
       User user = databaseContext.Users.Find(userId)!;
 
-      Car car = databaseContext.Cars.Find(user.FavoriteCarId)!;
+      Car car = databaseContext.Car.Find(user.FavoriteCarId)!;
 
       response.Write(car);
     }
@@ -186,8 +196,8 @@ class Program
 public class DatabaseContext : DbContextWrapper
 {
   public DbSet<User> Users { get; set; }
-  public DbSet<Car> Cars { get; set; }
-  // public DbSet<Favorite> favorites { get; set; }
+  public DbSet<Car> Car { get; set; }
+  //public DbSet<Favorite> favorites { get; set; }
 
   public DatabaseContext() : base("Database") { }
 }
