@@ -27,12 +27,40 @@ body {
 .fontt {
   font-family: 'Courier New', Courier, monospace;
 }
- .sign{
+
+.sign {
   position: absolute;
   top: 0;
   right: 0;
   margin: 20px;
 }
+
 .hidden {
   display: none !important;
+}
+
+.highlight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loggedInDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heady {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#logout {
+  display: flex;
+  justify-content: right;
+  align-items: right;
 }
