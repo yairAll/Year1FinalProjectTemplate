@@ -126,10 +126,18 @@ class Program
 
   static void HandleRequests(HttpListenerContext serverContext, DatabaseContext databaseContext)
   {
+
+
+
+
     var request = serverContext.Request;
     var response = serverContext.Response;
 
     string absPath = request.Url!.AbsolutePath;
+
+
+    
+
 
     if (absPath == "/signUp")
     {
@@ -187,6 +195,16 @@ class Program
 
       response.Write(car);
     }
+
+    else if (absPath == "/getUsername")
+    {
+      string id = request.GetBody<string>();
+
+      User user = databaseContext.Users.Find(id)!;
+
+      response.Write(user.Username);
+    }
+
 
   }
 

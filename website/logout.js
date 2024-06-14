@@ -7,4 +7,5 @@ console.log(logoutbutton);
 
 logoutbutton.onclick = function () {
      Cookies.remove("id");
+     top.location.href = "index.html";
 }

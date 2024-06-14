@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="images/topg.avif">
-    <title >SuperCars WIkipedia</title>
+    <title>SuperCars WIkipedia</title>
 </head>
+
 <body>
-    
-    <a href="favorites.html"> your favorites</a>
+    <div id="loggedinDiv2">
+        <a href="favorites.html"> your favorites</a>
+    </div>
     <div class="fontt">
-    choose your favorite car brand:
-</div>
-    <br/>
+        choose your favorite car brand:
+     </div>
+    
+    <br />
     <div class="row">
-    <div class="column">
-        <a href="ferrariHome.html">
-            <img src="images/FL.png" height="200" width="200"/>
-        </a>
+        <div class="column">
+            <a href="ferrariHome.html">
+                <img src="images/FL.png" height="200" width="200" />
+            </a>
+        </div>
+
+        <div class="column">
+            <a href="LamborghiniHome.html">
+                <img src="images/ll.png" height="300" width="400" />
+            </a>
+        </div>
+
+        <div class="column">
+            <a href="McLarenHome.html">
+                <img src="images/ml.png" height="200" width="300" />
+            </a>
+        </div>
+
+        <div class="column">
+            <a href="BugattiHome.html">
+                <img src="images/Bl.png" height="150" width="250" />
+            </a>
+        </div>
+
+        <div class="column">
+            <a href="porscheHome.html">
+                <img src="images/PL.png" height="200" width="300" />
+            </a>
+
+        </div>
+        <div class="column">
+            <a href="othercar.html">Other </a>
+        </div>
     </div>
 
-    <div class="column">
-        <a href="LamborghiniHome.html">
-            <img src="images/ll.png" height="300" width="400"/>
-        </a>
-    </div>
-
-    <div class="column">
-        <a href="McLarenHome.html">
-            <img src="images/ml.png" height="200" width="300"/>
-        </a>
-    </div>
-
-    <div class="column">
-        <a href="BugattiHome.html">
-            <img src="images/Bl.png" height="150" width="250"/>
-        </a>
-    </div>
-
-    <div class="column">
-        <a href="porscheHome.html">
-            <img src="images/PL.png" height="200" width="300"/>
-        </a>
-
-    </div>
-    <div class="column">
-        <a href="othercar.html">Other </a>
-    </div>
-    </div>
-    
     <div class="sign">
-    
-    <button width="500"><a href="signUP.html"> sign up</a></button>
-    <br>
-    <button><a href="logIN.html" width="500"> log in </a> </button>
-    <br>
-    <button id="logOut">log out</button>
+        <div id="loggedOutDiv">
+            <button id="signUpButton" width="500"><a href="signUP.html"> sign up</a></button>
+            <br>
+            <button id="logInButton"><a href="logIN.html" width="500"> log in </a> </button>
+            <br>
+        </div>
+
+        <div id="loggedInDiv">
+            <div id="greetingDiv"></div>
+            <button id="logOut">log out</button>
+        </div>
     </div>
 
     <script src="logout.js" type="module"></script>
+    <script src="script.js" type="module"></script>
 </body>
+
 </html>
