@@ -8,18 +8,6 @@ import Cookies from "./_cookies";
 let id = Cookies.get("id");
 let Username = Cookies.get("Username");
 
-async function favorite(carId) {
-    let allfavcars = await send("/addcartodb", carId, Cookies.get("id"));
-    addcarstodiv(allfavcars)
-}
-
-// function addcarstodiv(allfavcars) {
-//     let allfav = document.getElementById("allfav");
-//     for (let index = 0; index < allfavcars.length; index++) {
-//         allfav.appendChild(allfavcars[index]);
-//     }
-// }
-// addcarstodiv();
 async function getUsername() {
     if (id == undefined) {
         loggedInDiv.classList.add("hidden");
@@ -35,7 +23,6 @@ async function getUsername() {
         loggedInDiv.classList.add("hidden");
         
         Cookies.remove("id");
-        console.log("test");
         return;
     }
 

@@ -174,17 +174,8 @@ class Program
       )!;
 
       response.Write(user.Id);
-    }
-    else if (absPath == "/getpreviews")
-    {
-      var previews = databaseContext.Users.Select(CarId => new
-      {
-        carId = CarId,
-      }
-      );
-      response.Write(previews);
+   }
 
-    }
     else if (absPath == "/getFavorite")
     {
       string userId = request.GetBody<string>();
