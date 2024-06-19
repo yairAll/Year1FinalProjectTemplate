@@ -73,7 +73,7 @@ class Program
     {
       if (databaseContext.Car.Find(cars[i].Id) == null)
       {
-        Console.WriteLine(cars[i].Id);
+       // Console.WriteLine(cars[i].Id);
         databaseContext.Car.Add(cars[i]);
 
         databaseContext.SaveChanges();
@@ -224,7 +224,7 @@ public class User(string id, string username, string password)
 public class Car(int id, string name, string image)
 {
   [Key]
-  public int Id { get; set; } = id;
+  public int  Id { get; set; } = id;
   public string Name { get; set; } = name;
   public string Image { get; set; } = image;
 }

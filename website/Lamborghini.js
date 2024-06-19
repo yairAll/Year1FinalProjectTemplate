@@ -9,28 +9,18 @@ let Lamborghini4Button = document.getElementById("Lamborghini4Button");
 let Lamborghini5Button = document.getElementById("Lamborghini5Button");
 
 async function favorite(carId) {
-    console.log(carId, Cookies.get("id"));
     let allfavcars = await send("/addcartodb", {
-        cardId: carId,
+        carId:carId,
         userId: Cookies.get("id"),
     });
-    addcarstodiv(allfavcars)
+    console.log(allfavcars,Cookies.get("id"));
+   
 }
 
 
-Lamborghini0Button.onclick = () => favorite(6,"images/countach.jpg");// lamborghini countach
-Lamborghini1Button.onclick = () => favorite(7,"images/veneno.jpg");// lamborghini veneno
-Lamborghini2Button.onclick = () => favorite(8,"images/diablo.jpg");// lamborghini diablo
-Lamborghini3Button.onclick = () => favorite(9,"images/centenario.jpg");// lamborghini centenario
-Lamborghini4Button.onclick = () => favorite(10,"images/sto.jpg");// lamborghini huracan sto
-Lamborghini5Button.onclick = () => favorite(11,"images/svj.jpg");// lamborghini aventador svj
-
-function addcarstodiv(allfavcars) {
-    let allfav = document.getElementById("allfav");
-    for (let index = 0; index < allfavcars.length; index++) {
-
-        allfav.appendChild(allfavcars[index]);
-
-    }
-}
-addcarstodiv();
+Lamborghini0Button.onclick = () => favorite(6);// lamborghini countach
+Lamborghini1Button.onclick = () => favorite(7);// lamborghini veneno
+Lamborghini2Button.onclick = () => favorite(8);// lamborghini diablo
+Lamborghini3Button.onclick = () => favorite(9);// lamborghini centenario
+Lamborghini4Button.onclick = () => favorite(10);// lamborghini huracan sto
+Lamborghini5Button.onclick = () => favorite(11);// lamborghini aventador svj
